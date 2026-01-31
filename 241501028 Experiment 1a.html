@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Examination Registration Portal</title>
+</head>
+
+<body>
+
+<h1>Online Examination Registration Portal</h1>
+
+<!-- LINKS -->
+<p>
+<a href="#register">Registration</a> |
+<a href="#center">Exam Centers</a> |
+<a href="#map">Location Map</a> |
+<a href="#help">Help</a>
+</p>
+
+<hr>
+
+<!-- REGISTRATION FRAME -->
+<a name="register"></a>
+<h2>Registration (Frame)</h2>
+
+<iframe width="600" height="300"
+srcdoc='
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Student Registration</h2>
+
+<form>
+Name:<br>
+<input type="text"><br><br>
+
+Register Number:<br>
+<input type="text"><br><br>
+
+Email:<br>
+<input type="email"><br><br>
+
+Department:<br>
+<input type="text"><br><br>
+
+<input type="submit" value="Register">
+</form>
+
+</body>
+</html>
+'>
+</iframe>
+
+<hr>
+
+<!-- IMAGE MAP / HOTSPOTS -->
+<a name="center"></a>
+<h2>Select Exam Center (Hotspots)</h2>
+
+<img src="https://i.imgur.com/qIufhof.jpg" usemap="#campusmap" width="400">
+
+<map name="campusmap">
+
+<area shape="rect" coords="0,0,200,200"
+href="https://www.google.com/maps" target="_blank">
+
+<area shape="rect" coords="200,0,400,200"
+href="https://www.bing.com/maps" target="_blank">
+
+<area shape="rect" coords="100,200,300,350"
+href="https://www.openstreetmap.org" target="_blank">
+
+</map>
+
+<hr>
+
+<!-- EMBEDDED MAP -->
+<a name="map"></a>
+<h2>Exam Center Location</h2>
+
+<iframe 
+width="600"
+height="300"
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.3125587382076!2d80.0381!3d12.8233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f72b40fca4ab%3A0x77e54c85c1c7b9aa!2sRajalakshmi%20Engineering%20College!5e0!3m2!1sen!2sin!4v1700000000000">
+</iframe>
+
+<hr>
+
+<!-- HELP SECTION -->
+<a name="help"></a>
+<h2>Help Desk</h2>
+
+<p>
+Email: support@examportal.com<br>
+Phone: 9876543210
+</p>
+
+<hr>
+
+<p>© Online Exam Portal</p>
+
+</body>
+</html>
+

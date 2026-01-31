@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Exam Registration</title>
+
+<script>
+function validateForm() {
+
+    var firstName = document.getElementById("fname").value.trim();
+    var lastName = document.getElementById("lname").value.trim();
+    var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value.trim();
+    var mobile = document.getElementById("mobile").value.trim();
+    var address = document.getElementById("address").value.trim();
+
+    var namePattern = /^[A-Za-z]+$/;
+
+    if (firstName.length < 6 || !namePattern.test(firstName)) {
+        alert("First Name must contain only alphabets and at least 6 characters");
+        return false;
+    }
+
+    if (lastName === "") {
+        alert("Last Name cannot be empty");
+        return false;
+    }
+
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long");
+        return false;
+    }
+
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email)) {
+        alert("Enter a valid Email ID (example: name@domain.com)");
+        return false;
+    }
+
+    var mobilePattern = /^[0-9]{10}$/;
+    if (!mobilePattern.test(mobile)) {
+        alert("Mobile Number must contain exactly 10 digits");
+        return false;
+    }
+
+    if (address === "") {
+        alert("Address cannot be empty");
+        return false;
+    }
+
+    alert("Registration Successful!");
+    return true;
+}
+</script>
+
+</head>
+
+<body>
+
+<h2>Online Exam Registration</h2>
+
+<form onsubmit="return validateForm()">
+
+First Name:
+<input type="text" id="fname"><br><br>
+
+Last Name:
+<input type="text" id="lname"><br><br>
+
+Password:
+<input type="password" id="password"><br><br>
+
+Email:
+<input type="text" id="email"><br><br>
+
+Mobile Number:
+<input type="text" id="mobile"><br><br>
+
+Address:
+<textarea id="address"></textarea><br><br>
+
+<input type="submit" value="Register">
+
+</form>
+
+</body>
+</html>

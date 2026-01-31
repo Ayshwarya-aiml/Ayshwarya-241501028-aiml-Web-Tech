@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Exam Registration</title>
+
+<style>
+body{
+    background:#0f2027;
+    background:linear-gradient(to right,#2c5364,#203a43,#0f2027);
+    font-family:Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background:#fff;
+    width:380px;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input,textarea{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border:1px solid #aaa;
+    border-radius:5px;
+}
+
+textarea{
+    resize:none;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:20px;
+    background:#27ae60;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#219150;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Online Exam Registration</h2>
+
+<form onsubmit="return validateForm()">
+
+<input type="text" id="fname" placeholder="First Name">
+<div class="error" id="fnameError"></div>
+
+<input type="text" id="lname" placeholder="Last Name">
+<div class="error" id="lnameError"></div>
+
+<input type="password" id="password" placeholder="Password">
+<div class="error" id="passError"></div>
+
+<input type="text" id="email" placeholder="Email">
+<div class="error" id="emailError"></div>
+
+<input type="text" id="mobile" placeholder="Mobile Number">
+<div class="error" id="mobileError"></div>
+
+<textarea id="address" placeholder="Address"></textarea>
+<div class="error" id="addressError"></div>
+
+<button type="submit">Register</button>
+
+</form>
+</div>
+
+<script>
+function validateForm(){
+
+    // Get values
+    let fname = document.getElementById("fname").value.trim();
+    let lname = document.getElementById("lname").value.trim();
+    let pass = document.getElementById("password").value;
+    let email = document.getElementById("email").value.trim();
+    let mobile = document.getElementById("mobile").value.trim();
+    let address = document.getElementById("address").value.trim();
+
+    // Clear errors
+    document.getElementById("fnameError").innerHTML="";
+    document.getElementById("lnameError").innerHTML="";
+    document.getElementById("passError").innerHTML="";
+    document.getElementById("emailError").innerHTML="";
+    document.getElementById("mobileError").innerHTML="";
+    document.getElementById("addressError").innerHTML="";
+
+    let status = true;
+
+    // First Name
+    let namePattern = /^[A-Za-z]+$/;
+    if(fname.length < 6 || !fname.match(namePattern)){
+        document.getElementById("fnameError").innerHTML =
+        "First name must contain only letters and minimum 6 characters";
+        status = false;
+    }
+
+    // Last Name
+    if(lname === ""){
+        document.getElementById("lnameError").innerHTML =
+        "Last name cannot be empty";
+        status = false;
+    }
+
+    // Password
+    if(pass.length < 6){
+        document.getElementById("passError").innerHTML =
+        "Password must be at least 6 characters";
+        status = false;
+    }
+
+    // Email
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(!email.match(emailPattern)){
+        document.getElementById("emailError").innerHTML =
+        "Enter a valid email (name@domain.com)";
+        status = false;
+    }
+
+    // Mobile
+    let mobilePattern = /^[0-9]{10}$/;
+    if(!mobile.match(mobilePattern)){
+        document.getElementById("mobileError").innerHTML =
+        "Mobile number must contain exactly 10 digits";
+        status = false;
+    }
+
+    // Address
+    if(address === ""){
+        document.getElementById("addressError").innerHTML =
+        "Address cannot be empty";
+        status = false;
+    }
+
+    if(status){
+        alert("Registration Successful!");
+    }
+
+    return status;
+}
+</script>
+
+</body>
+</html>
