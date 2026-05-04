@@ -1,5 +1,0 @@
-<resources>
-
-    <style name="Theme.EmailSenderApp" parent="Theme.AppCompat.Light.DarkActionBar" />
-
-</resources>
